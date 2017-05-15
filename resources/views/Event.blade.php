@@ -11,8 +11,9 @@
   <title>Ro's Torv Forside</title>
 </head>
 <body>
-@include('header')
-  <div class="col-md-2">
+
+  @include('header-user') 
+  <div class="col-md-2 text-left">
   </div>
   <div class="col-md-8 ">
   <div class="row">
@@ -20,38 +21,55 @@
 
     </div>
   </div>
-    <div class="row text-center">
+    <div class="row">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h2 class="panel-heading">Butikker</h2>
+          <h2 class="panel-heading text-left">Events</h2>
         </div>
         <table class="table">
           <thead>
           <tr>
+<!-- 
+                    <div class="text-left">
+        <button type="button" class="btn-success " style="width: 200px; height: 40px;">
+        <span class="glyphicon glyphicon-plus"></span> Tilføj Ny Event</button>
+        </div> -->
+          <div class="pull-right">
+             <a href="/add-event"><button type="button" class="btn-success " style="width: 200px; height: 40px;">
+              <span class="glyphicon glyphicon-plus"></span> Tilføj Ny Event</button></a>     
+          </div>
+          </tr>
+          <tr>
             <th>
-              
+              Navn
             </th>
             <th>
+              Beskrivelse
             </th>
-            <th class="text-right">
-              <button type="button" class="btn-success" style="width: 100px; height: 40px;"><span class="glyphicon glyphicon-plus"></span>Tilføj</button>
-                    
+            <th>
+              Fra
             </th>
-            </tr>
+            <th>
+              Til
+            </th>
+          </tr>
           </thead>
           <tbody>
             <tr>
             <td>Føtex</td>
             <td>Føtex</td>
             <td>Føtex</td>
+            <td>Føtex</td>
+            </tr>
+            <tr>
+            <td>hnoeanhæenahoanhonaheiagf</td>
+            <td>hnoeanhæenahoanhonaheiagf</td>
+            <td>hnoeanhæenahoanhonaheiagfeangienagenlagknengeailngialn</td>
+            <td>Føtex</td>
             </tr>
             <tr>
             <td>Føtex</td>
             <td>Føtex</td>
-            <td>Mindre langt</td>
-            </tr>
-            <tr>
-            <td>Føtex</td>
             <td>Føtex</td>
             <td>Føtex</td>
             </tr>
@@ -59,8 +77,10 @@
             <td>Føtex</td>
             <td>Føtex</td>
             <td>Føtex</td>
+            <td>Føtex</td>
             </tr>
             <tr>
+            <td>Føtex</td>
             <td>Føtex</td>
             <td>Føtex</td>
             <td>Føtex</td>
@@ -69,27 +89,20 @@
         </table>
       </div>
     </div>
-<!--       <div class="text-center">
-      <br>
-      <br>
-        <button type="button" class="btn-success" style="width: 300px; height: 40px;">
-        <span class="glyphicon glyphicon-plus"></span>Tilføj Event her?</button>
-      </div>
-  </div> -->
-  <div class="col-md-2 text-center">
+  </div>
+  <div class="col-md-2">
   </div>
 </body>
-<style type="text/css">
-  .modal-body .form-horizontal .col-sm-2,
-  .modal-body .form-horizontal .col-sm-10 {
-    width: 100%
-}
 
-.modal-body .form-horizontal .control-label {
-    text-align: left;
-}
-.modal-body .form-horizontal .col-sm-offset-2 {
-    margin-left: 15px;
+
+<style type="text/css">
+.forsideheader {
+      padding: 1em;
+    color: white;
+    background-color: white;
+    clear: left;
+    text-align: center;
 }
 </style>
+
 </html>

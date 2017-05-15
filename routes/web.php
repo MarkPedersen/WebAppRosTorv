@@ -25,3 +25,10 @@ Route::get('/header', function () {
 });
 Route::get('/store','storeController@postStore');
 
+Route::get('/events', function () {
+    return view('Event');
+});
+
+Route::get('/add-event', function () {
+    return view('Event-Add');
+});
