@@ -18,7 +18,7 @@ Route::get('/forside', function () {
     return view('forside-shops');
 });
 Route::get('/forside-admin', function () {
-    return view('admin-shop-forside');
+    return view('admin-frontpage');
 });
 Route::get('/header', function () {
     return view('header');

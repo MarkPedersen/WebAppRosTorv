@@ -41,13 +41,8 @@
           </div>
 
           <div class="form-group">
-<<<<<<< Updated upstream
-            
-            <a href="forside"><input type="submit" name="login" value="Login" class="btn btn-primary"/></a>
-=======
-
+              <a href="/forside-admin"><button class="button" name="login">button</button></a>
             <a href="/forside-admin"><input type="submit" name="login" value="Login" class="btn btn-primary"/></a>
->>>>>>> Stashed changes
           </div>
           </div>
         </fieldset>
