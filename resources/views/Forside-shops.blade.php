@@ -14,7 +14,11 @@
 <p>For later:
 if user.role = admin
 include('header') 
-else</p>
+else
+
+<? 
+
+  ?></p>
   @include('header-user') 
   <div class="col-md-2 text-left">
   </div>

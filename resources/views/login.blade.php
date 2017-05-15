@@ -41,7 +41,8 @@
           </div>
 
           <div class="form-group">
-            <input type="submit" name="login" value="Login" class="btn btn-primary" onclick="window.location='{{ url("/forside") }}'" />
+            
+            <a href="forside"><input type="submit" name="login" value="Login" class="btn btn-primary"/></a>
           </div>
           </div>
         </fieldset>

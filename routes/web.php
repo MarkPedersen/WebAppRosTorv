@@ -23,4 +23,5 @@ Route::get('/forside-admin', function () {
 Route::get('/header', function () {
     return view('header');
 });
+Route::get('/store','storeController@postStore');
 
