@@ -1,3 +1,12 @@
+<?
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +35,7 @@
         <div class="panel-heading">
           <h2 class="panel-heading">Butikker</h2>
         </div>
-        <table class="table">
+        <table>
           <thead>
           <tr>
             <th>
@@ -40,7 +49,7 @@
             </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="table">
             <tr>
             <td>Føtex</td>
             <td>Føtex</td>
@@ -116,39 +125,43 @@
             </div>
             
             <!-- Modal Body -->
-            <div class="modal-body">
-                
-                <form role="form">
+
+            <div class="modal-body">                
+                <form method="post">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                 <fieldset>
                   <div class="form-group">
-                    <label for="exampleInputName1">Butikkens Navn</label>
+                    <label for="name">Butikkens Navn</label>
                       <input type="name" class="form-control"
-                      id="exampleInputName1" placeholder="Indset Navn"/>
+                      name="name" placeholder="Indsæt Navn"/>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Adgangskode</label>
-                      <input type="password" class="form-control"
-                          id="exampleInputPassword1" placeholder="Adgangskode"/>
+                    <label for="password">Adgangskode</label>
+                      <input type="text"  class="form-control" name="password"
+                          placeholder="Adgangskode"/>
                   </div>
-                  <div class="form-group">
+                 <!--  <div class="form-group">
                     <label for="exampleInputRPassword1">Gentag Adgangskode</label>
                       <input type="Rpassword" class="form-control"
                           id="exampleInputRPassword1" placeholder="Adgangskode"/>
-                  </div>
-                </form>
-                
-                
-            </div>
-            
-            <!-- Modal Footer -->
-            <div class="modal-footer">
+                  </div> -->
+                  <div class="form-group">
                 <button type="button" class="btn btn-default pull-left"
                         data-dismiss="modal">
                             Luk
                 </button>
-                <button type="button" class="btn btn-success">
+                <button type="submit" class="btn btn-success">
                     Gem butik
                 </button>
+                </div>
+               </fieldset>
+
+
+            </form>
+                
             </div>
+            
+            
         </div>
     </div>
 </div>

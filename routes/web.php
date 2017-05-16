@@ -23,7 +23,10 @@ Route::get('/forside-admin', function () {
 Route::get('/header', function () {
     return view('header');
 });
-Route::get('/store','storeController@postStore');
+
+Route::get('/store','storeController@index');
+
+Route::post('/store','storeController@store');
 
 Route::get('/events', function () {
     return view('Event');
