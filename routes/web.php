@@ -30,6 +30,14 @@ Route::get('/events', function () {
     return view('Event');
 });
 
-Route::get('/add-event', function () {
+Route::get('/tilføj-event', function () {
     return view('Event-Add');
+});
+
+Route::get('/nyt-tilbud', function () {
+    return view('Add-Offer');
+});
+
+Route::get('/test', function () {
+    return view('testofmaster');
 });

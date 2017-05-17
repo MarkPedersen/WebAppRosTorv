@@ -21,14 +21,14 @@
 				<input type="date" name="DateTo">
 			</div>
 		</div>
-		<br>
-		
+
+	<br>
+	
 		<div class="row">
 			<div class="col-md-4">
 				<label>Beskrivelse:</label><br>
 				<textarea style="width: 250px; height: 220px;">Test</textarea>
 			</div>
-			
 			<div class="col-md-4">
 				<form method="POST" action="imagecontroller.php" enctype="multipart/form-data">
 					<label>Img:</label>
@@ -39,9 +39,20 @@
 					</div>
 				</form>
 			</div>
-				<div class="col-md-4" style="padding-top: 17%;"><br>
-					<button type="button" name="save" class="btn btn-success" style="text-align: center; width: 150px;">Save</button> 
-				</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<label for="name">Før Pris:</label><br>
+				<input type="number" name="fprice" placeholder="Pris">
+			</div>
+			<div class="col-md-4">
+				<label>Efter Pris:</label><br>
+				<input type="number" name="eprice">
+			</div>
+			<div class="col-md-4 pull-right"><br>
+				<button type="button" name="save" class="btn btn-success" style="text-align: center; width: 150px; ">Save</button> 
+			</div>
 		</div>
 	</div>
 @stop

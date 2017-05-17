@@ -41,7 +41,7 @@
           </div>
 
           <div class="form-group">
-              <a href="/forside-admin"><button class="button" name="login">button</button></a>
+              <a href="/forside-admin">redirect</a>
             <a href="/forside-admin"><input type="submit" name="login" value="Login" class="btn btn-primary"/></a>
           </div>
           </div>
