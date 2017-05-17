@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 
+use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -15,7 +17,17 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view ('admin-frontpage');
+        $store = new Client();
+        $res = $store->request('GET','localhost:8000/api/v1/store');
+        $stores = $res->getBody()->getContents();
+        $result = json_decode($stores);
+
+        // echo "<pre>";
+
+        // var_dump($result);
+
+       return view ('admin-frontpage',['stores' => $result]);
+        // return view ('admin-frontpage')->with('store', $result);
     }
 
     /**
@@ -47,7 +59,9 @@ class StoreController extends Controller
             ]
         ]);
 
-        return view('admin-frontpage');
+        
+
+        return Redirect::action('storeController@index');
         
 
         // echo $res->getStatusCode();

@@ -35,7 +35,7 @@
         <div class="panel-heading">
           <h2 class="panel-heading">Butikker</h2>
         </div>
-        <table>
+        <table class="table">
           <thead>
           <tr>
             <th>
@@ -49,7 +49,7 @@
             </th>
             </tr>
           </thead>
-          <tbody class="table">
+          <tbody>
             <tr>
             <td>Føtex</td>
             <td>Føtex</td>
@@ -77,6 +77,11 @@
             </tr>
           </tbody>
         </table>
+        
+        @foreach($stores as $store)
+           {{ $store->name }} <br>
+        @endforeach
+
       </div>
       <!-- Button trigger modal -->
 
@@ -172,25 +177,13 @@
 
 <!-- Post Info -->
 <div style='position:fixed;bottom:0;left:0; background:lightgray;width:100%;'>
-    About this SO Question:
-    <a href='http://stackoverflow.com/q/26562900/1366033'>
-        Twitter Bootstap - form in Modal fomatting
-    </a><br/>
-    Fork This Skeleton Here: 
-    <a href='http://jsfiddle.net/KyleMit/kcpma/'>
-        Bootstrap 3 Skeleton
-    </a><br/>
+    
+    
 </div>
 
 
     </div>
-<!--       <div class="text-center">
-      <br>
-      <br>
-        <button type="button" class="btn-success" style="width: 300px; height: 40px;">
-        <span class="glyphicon glyphicon-plus"></span>Tilføj Event her?</button>
-      </div>
-  </div> -->
+
   <div class="col-md-2 text-center">
   </div>
 </body>

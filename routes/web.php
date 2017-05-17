@@ -17,16 +17,14 @@ Route::get('/', function () {
 Route::get('/forside', function () {
     return view('forside-shops');
 });
-Route::get('/forside-admin', function () {
-    return view('admin-frontpage');
-});
 Route::get('/header', function () {
     return view('header');
 });
 
-Route::get('/store','storeController@index');
 
-Route::post('/store','storeController@store');
+Route::get('/admin/forside', 'storeController@index');
+
+Route::post('/admin/forside','storeController@store');
 
 Route::get('/events', function () {
     return view('Event');
