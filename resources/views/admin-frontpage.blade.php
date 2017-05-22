@@ -49,38 +49,58 @@
             </th>
             </tr>
           </thead>
+         
           <tbody>
-            <tr>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            <td>Føtex</td>
+ @foreach($stores as $store)
+            <tr align="center">
+            <td>
+            <form action="/admin/forside">
+            <button data-toggle="modal" data-target="#myModalEdit"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></button>
+            </form> 
+            </td>
+            
+            <td>{{ $store->name }} </td>
+            
+            <td>
+            
+            <form action="/admin/forside" method="DELETE">
+            <input type="hidden" name="store_id" value="DELETE">
+            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+             <button type="submit"><span class="glyphicon glyphicon-remove" style="color:red"></span></button> 
+              </form>
+
+           <!--  <a href="{!! action('storeController@destroy', $store->id) !!}" class="glyphicon glyphicon-remove">
+               -->
+          <!-- <form method="post" class="pull-left">
+            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+            <input type="hidden" name="_delete" value="{{ $store->id }}">
+               <div>
+                   <button type="submit" class="glyphicon glyphicon-remove">Delete</button>
+               </div>
+           </form>
+ -->
+            <!-- <form method="post" action="{!! action('storeController@destroy', $store->id) !!}">
+            <input type="hidden" name="_token" value="{{!! csrf_token() !!}}">
+
+            <div>
+
+            <button type="submit"><span class="glyphicon glyphicon-remove" style="color:red"></span></button> 
+            </div>
+            </form> -->
+            
+            
+
+            </td>
             </tr>
-            <tr>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            <td>Mindre langt</td>
-            </tr>
-            <tr>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            </tr>
-            <tr>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            </tr>
-            <tr>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            <td>Føtex</td>
-            </tr>
+            @endforeach
           </tbody>
+          
+
         </table>
         
-        @foreach($stores as $store)
-           {{ $store->name }} <br>
-        @endforeach
+        
+           
+        
 
       </div>
       <!-- Button trigger modal -->
@@ -112,7 +132,7 @@
 
 <!-- Button trigger modal -->
 
-<!-- Modal -->
+<!-- Create shop Modal -->
 <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" 
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -171,6 +191,66 @@
     </div>
 </div>
 
+<!-- Edit shop modal -->
+<div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Redigér butik
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+
+            <div class="modal-body">                
+                <form method="post">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                 <fieldset>
+                  <div class="form-group">
+                    <label for="name">Butikkens Navn</label>
+                      <input type="name" class="form-control"
+                      name="name" placeholder="{{ $store->name }}"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Adgangskode</label>
+                      <input type="text"  class="form-control" name="password"
+                          placeholder="{{ $store->password }}"/>
+                  </div>
+                 <!--  <div class="form-group">
+                    <label for="exampleInputRPassword1">Gentag Adgangskode</label>
+                      <input type="Rpassword" class="form-control"
+                          id="exampleInputRPassword1" placeholder="Adgangskode"/>
+                  </div> -->
+                  <div class="form-group">
+                <button type="button" class="btn btn-default pull-left"
+                        data-dismiss="modal">
+                            Luk
+                </button>
+                <button type="submit" class="btn btn-success">
+                    Redigér butik
+                </button>
+                </div>
+               </fieldset>
+
+
+            </form>
+                
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+
 
 
 
@@ -192,6 +272,16 @@
   .modal-body .form-horizontal .col-sm-2,
   .modal-body .form-horizontal .col-sm-10 {
     width: 100%
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+table td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .modal-body .form-horizontal .control-label {

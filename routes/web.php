@@ -26,6 +26,9 @@ Route::get('/admin/forside', 'storeController@index');
 
 Route::post('/admin/forside','storeController@store');
 
+Route::delete('/admin/forside/delete/{store_id}', 'storeController@destroy');
+
+
 Route::get('/events', function () {
     return view('Event');
 });

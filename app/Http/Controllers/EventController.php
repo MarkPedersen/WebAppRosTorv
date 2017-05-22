@@ -8,11 +8,9 @@ use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Http\Request;
 
-
-
-class StoreController extends Controller
+class EventController extends Controller
 {
-        public $client;
+    public $client;
 
         public function __construct(){
             $this->client = new Client([
@@ -24,20 +22,14 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        
-        $res = $this->client->request('GET','store');
-        $stores = $res->getBody()->getContents();
-        $result = json_decode($stores);
+        //
+        $res = $this->client->request('GET','event');
+        $events = $res->getBody()->getContents();
+        $result = json_decode($events);
 
-        // echo "<pre>";
-
-        // var_dump($result);
-
-       return view ('admin-frontpage',['stores' => $result]);
-        // return view ('admin-frontpage')->with('store', $result);
+        return view ('admin-frontpage',['events' => $result]);
     }
 
     /**
@@ -59,22 +51,19 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         //
-
-
-        
-        $this->client->request('POST', 'store', [
+        $this->client->request('POST', 'event', [
             'form_params' => [
                 'name' => $request->get('name'),                
-                'password' => $request->get('password'),
+                'password' => $request->get('description'),
+                'img' => $request->get('img'),
+                'start_date' => $request->get('start_date'),
+                'end_date' => $request->get('end_date'),
             ]
         ]);
 
         
 
-        return Redirect::action('storeController@index');
-        
-
-        // echo $res->getStatusCode();
+        return Redirect::action('eventController@index');
     }
 
     /**
@@ -109,7 +98,6 @@ class StoreController extends Controller
     public function update(Request $request, $id)
     {
         //
-
     }
 
     /**
@@ -121,11 +109,5 @@ class StoreController extends Controller
     public function destroy($id)
     {
         //
-        
-        $this->store->request('DELETE', 'store'.$id);
-        
-
-        return view('admin-frontpage');
-        // return Redirect::action('storeController@index');
     }
 }
