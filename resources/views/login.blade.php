@@ -25,14 +25,15 @@
               <article role="login">
                 <h3 class="text-center"><i class="fa fa-lock"></i>Ro's Torv</h3>
         
-                <form role="form" action="" method="post" name="loginform">
+      <form method="post">
+      <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <fieldset>
           <legend>Login</legend>
           
           <div class="col-lg-2 col-lg-offset-2">
           <div class="form-group">
             <label for="name">Username</label>
-            <input type="text" name="username" placeholder="Your Username" required class="form-control" />
+            <input type="text" name="name" placeholder="Your Username" required class="form-control" />
           </div>
 
           <div class="form-group">
@@ -41,8 +42,8 @@
           </div>
 
           <div class="form-group">
-              <a href="/forside-admin">redirect</a>
-            <a href="/forside-admin"><input type="submit" name="login" value="Login" class="btn btn-primary"/></a>
+              <a href="/admin/forside">redirect</a>
+            <a href="/admin/forside"><input type="submit" class="btn btn-primary"/></a>
           </div>
           </div>
         </fieldset>

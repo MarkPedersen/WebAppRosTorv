@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class storeCordsController extends Controller
 {
     public $client;
 
@@ -25,11 +25,11 @@ class EventController extends Controller
     public function index()
     {
         //
-        $res = $this->client->request('GET','event');
+        $res = $this->client->request('GET','storeCords');
         $events = $res->getBody()->getContents();
-        $result = json_decode($events);
+        $result = json_decode($store_cords);
 
-        return view ('Event',['events' => $result]);
+        return view ('admin-frontpage',['store_cords' => $result]);
     }
 
     /**
@@ -51,20 +51,16 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
-        $this->client->request('POST', 'event', [
+        $this->client->request('POST', 'storeCords', [
             'form_params' => [
-                'name' => $request->get('name'),                
-                'description' => $request->get('description'),
-                'start_date' => $request->get('start_date'),
-                'end_date' => $request->get('end_date'),
-                'img_path' => $request->get('img_path'),
-
+                'latitude' => $request->get('latitude'),                
+                'longitude' => $request->get('longitude'),
             ]
         ]);
 
         
 
-        return Redirect::action('eventController@index');
+        return Redirect::action('storeCordsController@index');
     }
 
     /**

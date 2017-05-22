@@ -1,12 +1,3 @@
-<?
-
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,7 +148,7 @@
                  <fieldset>
                   <div class="form-group">
                     <label for="name">Butikkens Navn</label>
-                      <input type="name" class="form-control"
+                      <input type="text" class="form-control"
                       name="name" placeholder="Indsæt Navn"/>
                   </div>
                   <div class="form-group">
@@ -190,69 +181,6 @@
         </div>
     </div>
 </div>
-
-<!-- Edit shop modal -->
-<div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" 
-     aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <button type="button" class="close" 
-                   data-dismiss="modal">
-                       <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    Redigér butik
-                </h4>
-            </div>
-            
-            <!-- Modal Body -->
-
-            <div class="modal-body">                
-                <form method="post">
-                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                 <fieldset>
-                  <div class="form-group">
-                    <label for="name">Butikkens Navn</label>
-                      <input type="name" class="form-control"
-                      name="name" placeholder="{{ $store->name }}"/>
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Adgangskode</label>
-                      <input type="text"  class="form-control" name="password"
-                          placeholder="{{ $store->password }}"/>
-                  </div>
-                 <!--  <div class="form-group">
-                    <label for="exampleInputRPassword1">Gentag Adgangskode</label>
-                      <input type="Rpassword" class="form-control"
-                          id="exampleInputRPassword1" placeholder="Adgangskode"/>
-                  </div> -->
-                  <div class="form-group">
-                <button type="button" class="btn btn-default pull-left"
-                        data-dismiss="modal">
-                            Luk
-                </button>
-                <button type="submit" class="btn btn-success">
-                    Redigér butik
-                </button>
-                </div>
-               </fieldset>
-
-
-            </form>
-                
-            </div>
-            
-            
-        </div>
-    </div>
-</div>
-
-
-
-
 
 
 <!-- Post Info -->

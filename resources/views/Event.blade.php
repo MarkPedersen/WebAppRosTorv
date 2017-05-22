@@ -23,6 +23,7 @@
            <a href="/tilføj-event"><button type="button" class="btn-success " style="width: 200px; height: 40px;">
             <span class="glyphicon glyphicon-plus"></span> Tilføj Ny Event</button></a> 
         </div>
+   
         </tr>
         <tr>
           <th>
@@ -40,36 +41,14 @@
         </tr>
         </thead>
         <tbody>
+        @foreach ($events as $event)
           <tr>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
+          <td>{{ $event->name }}</td>
+          <td>{{ $event->description }}</td>
+          <td>{{ $event->start_date }}</td>
+          <td>{{ $event->end_date }}</td>
           </tr>
-          <tr>
-          <td>hnoeanhæenahoanhonaheiagf</td>
-          <td>hnoeanhæenahoanhonaheiagf</td>
-          <td>hnoeanhæenahoanhonaheiagfeangienagelagknengeailngialn</td>
-          <td>Føtex</td>
-          </tr>
-          <tr>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          </tr>
-          <tr>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          </tr>
-          <tr>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          <td>Føtex</td>
-          </tr>
+        @endforeach
         </tbody>
       </table>
   </div>

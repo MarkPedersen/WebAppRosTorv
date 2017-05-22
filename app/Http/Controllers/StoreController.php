@@ -13,31 +13,28 @@ use Illuminate\Http\Request;
 class StoreController extends Controller
 {
         public $client;
-
-        public function __construct(){
+         public function __construct(){
             $this->client = new Client([
             'base_uri' => 'localhost:8000/api/v1/']);
 
         }
+        
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
+        if (!isset($_COOKIE['api_token'])) {
+             return Redirect::action('loginController@index');
+        }
         
         $res = $this->client->request('GET','store');
         $stores = $res->getBody()->getContents();
         $result = json_decode($stores);
 
-        // echo "<pre>";
-
-        // var_dump($result);
-
        return view ('admin-frontpage',['stores' => $result]);
-        // return view ('admin-frontpage')->with('store', $result);
     }
 
     /**
@@ -58,11 +55,13 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-
+       if (isset($_COOKIE['api_token'])) {
+             $cookie = $_COOKIE['api_token'];
+        }else{
+             return Redirect::action('loginController@index');
+        }
         
-        $this->client->request('POST', 'store', [
+        $this->client->request('POST', 'store?api_token='.$cookie, [
             'form_params' => [
                 'name' => $request->get('name'),                
                 'password' => $request->get('password'),
