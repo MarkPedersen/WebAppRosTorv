@@ -23,9 +23,11 @@
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="/forside-admin">Butikker</a>
+                <li><a href="/admin/forside">Butikker</a>
                 </li>
                 <li><a href="/events">Events</a>
+                </li>
+                <li><a href="/">Shops</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

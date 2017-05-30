@@ -20,7 +20,7 @@
       <span class="glyphicon glyphicon-plus"></span> Tilføj Ny Event</button>
       </div> -->
         <div class="pull-right">
-           <a href="/tilføj-event"><button type="button" class="btn-success " style="width: 200px; height: 40px;">
+           <a href="/event/add"><button type="button" class="btn-success " style="width: 200px; height: 40px;">
             <span class="glyphicon glyphicon-plus"></span> Tilføj Ny Event</button></a> 
         </div>
    

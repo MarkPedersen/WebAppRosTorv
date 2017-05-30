@@ -14,7 +14,7 @@ class LoginController extends Controller
 
         public function __construct(){
             $this->client = new Client([
-            'base_uri' => 'localhost:8000/api/v1/']);
+            'base_uri' => 'rostorv.mhdelfs.com/api/v1/']);
 
         }
     /**
@@ -46,8 +46,10 @@ class LoginController extends Controller
             ]);
 
         $result = $res->getBody()->getContents();
+        $decoded = json_decode($result);
 
-        setcookie("api_token", $result);
+        setcookie("login_cookie[api_token]", $decoded->api_token);
+        setcookie("login_cookie[store_id]", $decoded->store_id);
 
         return Redirect::action('storeController@index');
 

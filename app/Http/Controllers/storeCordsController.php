@@ -14,7 +14,7 @@ class storeCordsController extends Controller
 
         public function __construct(){
             $this->client = new Client([
-            'base_uri' => 'localhost:8000/api/v1/']);
+            'base_uri' => 'rostorv.mhdelfs.com/api/v1/']);
 
         }
     /**

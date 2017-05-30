@@ -15,7 +15,7 @@ class StoreController extends Controller
         public $client;
          public function __construct(){
             $this->client = new Client([
-            'base_uri' => 'localhost:8000/api/v1/']);
+            'base_uri' => 'rostorv.mhdelfs.com/api/v1/']);
 
         }
         
@@ -26,7 +26,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        if (!isset($_COOKIE['api_token'])) {
+        if (!isset($_COOKIE['login_cookie'])) {
              return Redirect::action('loginController@index');
         }
         
@@ -55,20 +55,25 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-       if (isset($_COOKIE['api_token'])) {
-             $cookie = $_COOKIE['api_token'];
-        }else{
+       if (!isset($_COOKIE['login_cookie'])) {
              return Redirect::action('loginController@index');
         }
+        $cookie = $_COOKIE['login_cookie'];
         
-        $this->client->request('POST', 'store?api_token='.$cookie, [
+        $this->client->request('POST', 'store?api_token='.$cookie['api_token'], [
             'form_params' => [
                 'name' => $request->get('name'),                
                 'password' => $request->get('password'),
             ]
         ]);
 
-        
+        // $result = $response->getBody()->getContents();
+
+        /*$i = json_decode($result);
+
+        var_dump($i);
+
+        echo $i->error->message;*/
 
         return Redirect::action('storeController@index');
         

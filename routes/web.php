@@ -19,7 +19,7 @@ Route::get('/header', function () {
 });
 
 
-//Store Routes
+//admin Routes
 
 Route::get('/admin/forside', 'storeController@index');
 
@@ -27,15 +27,18 @@ Route::post('/admin/forside','storeController@store');
 
 Route::delete('/admin/forside/delete/{store_id}', 'storeController@destroy');
 
+//shop Routes
+
+Route::get('/', 'offerController@index');
+Route::get('/tilføj', 'offerController@create');
+Route::post('/tilføj','offerController@store');
+
+
 //Event Routes
 
 Route::get('/events', 'eventController@index');
-Route::post('/events','eventController@store');
-
-//Add event route
-
-Route::get('/add-event', 'eventController@index');
-Route::post('/add-event', 'eventController@store');
+Route::get('/event/add', 'eventController@create');
+Route::post('/event/add','eventController@store');
 
 //get token
 
@@ -43,13 +46,7 @@ Route::get('/login', 'loginController@index' );
 Route::post('/login', 'loginController@store');
 
 
-/*Route::get('/events', function () {
-    return view('Event');
-});*/
 
-Route::get('/tilføj-event', function () {
-    return view('Event-Add');
-});
 
 Route::get('/nyt-tilbud', function () {
     return view('Add-Offer');

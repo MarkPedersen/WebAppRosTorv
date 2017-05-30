@@ -10,11 +10,10 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public $client;
-
+      public $client;
         public function __construct(){
             $this->client = new Client([
-            'base_uri' => 'localhost:8000/api/v1/']);
+            'base_uri' => 'rostorv.mhdelfs.com/api/v1/']);
 
         }
     /**
@@ -25,10 +24,13 @@ class EventController extends Controller
     public function index()
     {
         //
+        if (!isset($_COOKIE['login_cookie'])) {
+             return Redirect::action('loginController@index');
+        }
+
         $res = $this->client->request('GET','event');
         $events = $res->getBody()->getContents();
         $result = json_decode($events);
-
         return view ('Event',['events' => $result]);
     }
 
@@ -40,6 +42,7 @@ class EventController extends Controller
     public function create()
     {
         //
+        return view ('Event-Add');
     }
 
     /**
@@ -50,8 +53,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $this->client->request('POST', 'event', [
+        if (isset($_COOKIE['login_cookie'])) {
+             $cookie = $_COOKIE['login_cookie'];
+        }else{
+             return Redirect::action('loginController@index');
+        }
+        
+
+        $this->client->request('POST', 'event?api_token='.$cookie['api_token'], [
             'form_params' => [
                 'name' => $request->get('name'),                
                 'description' => $request->get('description'),
@@ -75,7 +84,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -15,16 +15,16 @@
      <fieldset>
 		<div class="row">
 			<div class="col-md-4">
-				<label for="name">Navn:</label><br>
-				<input type="text" name="name" placeholder="Navn">
+				<label>Navn:</label><br>
+				<input type="text" name="name" class="form-control" placeholder="Navn">
 			</div>
 			<div class="col-md-4">
 				<label>Fra:</label><br>
-				<input type="date" name="start_date">
+				<input type="date" name="start_date" class="form-control">
 			</div>
 			<div class="col-md-4">
 				<label>Til:</label><br>
-				<input type="date" name="end_date">
+				<input type="date" name="end_date" class="form-control">
 			</div>
 		</div>
 		<br>
@@ -32,11 +32,16 @@
 		<div class="row">
 			<div class="col-md-4">
 				<label>Beskrivelse:</label><br>
-				<textarea style="width: 250px; height: 220px;">Beskriv eventet her</textarea>
-				<input type="text" name="description">
+				<textarea type="textarea" name="description" class="form-control" style="width: 250px; height: 220px;" placeholder="Beskriv eventet her"></textarea>
+				
 			</div>
+
+			 <div class="col-md-4">
+				<label>Img path:</label><br>
+				<input type="text" name="img_path" class="form-control" placeholder="img_path">
+			</div> 
 			
-			<div class="col-md-4">
+			<!-- <div class="col-md-4">
 				<form method="POST" action="imagecontroller.php" enctype="multipart/form-data">
 					<label>Img:</label>
 					<div id="wrapper">
@@ -45,7 +50,7 @@
 						<input type="submit" name="img_path" value="Upload">
 					</div>
 				</form>
-			</div>
+			</div> -->
 				<div class="col-md-4" style="padding-top: 17%;"><br>
 					<button type="submit" class="btn btn-success" style="text-align: center; width: 150px;">Save</button> 
 				</div>
